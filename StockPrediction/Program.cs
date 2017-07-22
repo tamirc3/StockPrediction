@@ -51,6 +51,7 @@ namespace Stocks
             this.High = high;
             this.Open = open;
             this.Date = date;
+
         }
 
         public DateTime Date { get; set; }
