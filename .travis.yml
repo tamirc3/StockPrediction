@@ -1,5 +1,6 @@
 {
   "language": "csharp",
+  solution: "StockPrediction.sln"
   "group": "stable",
   "dist": "trusty",
   "os": "linux"
