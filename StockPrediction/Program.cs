@@ -15,7 +15,9 @@ namespace Stocks
         static void Main(string[] args)
         {
             CsvReader csvReader = new CsvReader();
-            var listOfStocks = csvReader.ReadFile(@"C:\Users\Tamir\Desktop\AMZN.csv");
+            var wrapper = new YahooWrapper();
+
+            var listOfStocks = wrapper.GetShitFromYahoo("AMZN");//csvReader.ReadFile(@"C:\Users\Tamir\Desktop\AMZN.csv");
 
             // The multivariate linear regression is a generalization of
             // the multiple linear regression. In the multivariate linear
