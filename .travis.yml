@@ -1,7 +1,7 @@
-{
-  "language": "csharp",
-  solution: "StockPrediction.sln"
-  "group": "stable",
-  "dist": "trusty",
-  "os": "linux"
-}
+
+language: csharp
+solution: "StockPrediction.sln"
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" StockPrediction.sln
+script:
+- xbuild StockPrediction.sln
