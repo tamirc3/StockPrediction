@@ -5,3 +5,11 @@ install:
 - travis_retry nuget restore -source "https://www.nuget.org/api/v2" StockPrediction.sln
 script:
 - xbuild StockPrediction.sln
+
+notifications:
+  email:
+    recipients:
+      - shoa.alon@gmail.com
+      - tamirc3@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
