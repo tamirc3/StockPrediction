@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
 using Accord.Math.Optimization.Losses;
 using Accord.Statistics.Models.Regression.Linear;
 
@@ -13,17 +10,15 @@ namespace Stocks
     {
         static void Main(string[] args)
         {
-            SpeechSynthesizer synthesizer = new SpeechSynthesizer();
+          
       
-            synthesizer.Speak("wellcome to stock prediction");
-            synthesizer.Speak("if your name is Alon you should bring coffe");
+   
 
             CsvReader csvReader = new CsvReader();
             var wrapper = new YahooWrapper();
 
-            synthesizer.Speak("getting shit from yahoo");
             var listOfStocks = wrapper.GetShitFromYahoo("AMZN");//csvReader.ReadFile(@"C:\Users\Tamir\Desktop\AMZN.csv");
-            synthesizer.Speak("done getting shit from yahoo");
+         
             // The multivariate linear regression is a generalization of
             // the multiple linear regression. In the multivariate linear
             // regression, not only the input variables are multivariate,
@@ -62,12 +57,11 @@ namespace Stocks
             OrdinaryLeastSquares ols = new OrdinaryLeastSquares();
 
 
-            synthesizer.Speak("learning..");
             // Now, compute the multivariate linear regression:
             MultivariateLinearRegression regression = ols.Learn(inputs, outputs);
 
 
-            synthesizer.Speak("learning done");
+         
             // We can obtain predictions using
             double[][] predictions = regression.Transform(inputs);
 
@@ -94,7 +88,6 @@ namespace Stocks
             // We can also check the r-squared coefficients of determination:
             double[] r2 = regression.CoefficientOfDetermination(inputs, outputs);
 
-            synthesizer.Speak("Weights for the model are");
             foreach (var row in regression.Weights)
             {
                 foreach (var d in row)
@@ -104,7 +97,7 @@ namespace Stocks
                 Console.WriteLine();
             }
 
-            synthesizer.Speak("good bye");
+    
         }
     }
 }
