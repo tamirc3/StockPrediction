@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -6,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using Accord.Extensions.Statistics.Filters;
+using StockPrediction;
 
 namespace Stocks
 {
-    public class YahooWrapper
+    public class YahooWrapper : IDataBringer
     {
-        public List<Stock> GetShitFromYahoo(string symbol)
+  
+        public IList BringMeData(string symbol)
         {
             //first get a valid token from Yahoo Finance
             while (string.IsNullOrEmpty(Token.Cookie) || string.IsNullOrEmpty(Token.Crumb))
@@ -24,6 +27,8 @@ namespace Stocks
             return hps.Select(x => new Stock(x.Volume, x.AdjClose, x.Close, x.Low, x.High, x.Open, x.Date)).ToList();
         }
     }
+
+  
 
     /// <summary>
     /// Class for fetching token (cookie and crumb) from Yahoo Finance
