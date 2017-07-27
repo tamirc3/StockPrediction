@@ -8,10 +8,9 @@ namespace Stocks
         {
 
             var wrapper = new YahooWrapper();
-            var listOfStocks = wrapper.GetShitFromYahoo("AMZN");//csvReader.ReadFile(@"C:\Users\Tamir\Desktop\AMZN.csv");
+            var listOfStocks = wrapper.GetShitFromYahoo("AMZN");
              Predictor predictor = new Predictor();
             predictor.Predict(listOfStocks);
-
         }
     }
 }
