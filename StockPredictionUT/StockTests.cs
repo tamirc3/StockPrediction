@@ -3,7 +3,7 @@
 namespace StockPredictionUT
 {
     [TestFixture]
-    public class UnitTest1
+    public class StockTests
     {
         [Test]
         public void TestMethod1()
