@@ -1,10 +1,8 @@
-﻿using StockPrediction;
-
-namespace Stocks
+﻿namespace StockPrediction
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
         //    var wrapper = new YahooWrapper();

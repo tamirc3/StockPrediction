@@ -7,7 +7,7 @@ namespace StockPrediction
 {
     public class Trainer
     {
-        public Model Train(DataContainer dataContainer)
+        public Model Train(IDataContainer dataContainer)
         {
             return null;
         }
@@ -18,19 +18,7 @@ namespace StockPrediction
 
     }
 
-    
-
-    public class DataContainer
-    {
-
-        public IList GetData()
-        {
-
-            var wrapper = new YahooWrapper();
-            var listOfStocks = wrapper.BringMeData("AMZN");
-            return listOfStocks;
-        }
-    }
+   
 
     public class Evaluator
     {
