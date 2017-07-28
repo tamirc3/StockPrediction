@@ -2,10 +2,10 @@ language: csharp
 solution: StockPrediction.sln
 install:
   - nuget restore StockPrediction.sln
-  - nuget install NUnit.Runners -Version 3.7.1.0 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release StockPrediction.sln
-  - mono ./testrunner/NUnit.Runners.3.7.1.0/tools/nunit-console.exe ./StockPredictionUT/bin/Release/StockPredictionUT.dll
+  - mono ./testrunner/NUnit.Runners.3.7.0/tools/nunit-console.exe ./StockPredictionUT/bin/Release/StockPredictionUT.dll
   
 notifications:
   email:
