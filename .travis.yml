@@ -1,15 +1,12 @@
-
 language: csharp
-solution: "StockPrediction.sln"
-before_install:
-  - sudo apt-get install nunit-console
+solution: StockPrediction.sln
 install:
-- travis_retry nuget restore -source "https://www.nuget.org/api/v2" StockPrediction.sln
-before_script:
   - nuget restore StockPrediction.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-- xbuild StockPrediction.sln
-
+  - xbuild /p:Configuration=Release StockPrediction.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./StockPredictionUT/bin/Release/StockPredictionUT.dll
+  
 notifications:
   email:
     recipients:
