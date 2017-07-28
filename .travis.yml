@@ -1,8 +1,12 @@
 
 language: csharp
 solution: "StockPrediction.sln"
+before_install:
+  - sudo apt-get install nunit-console
 install:
 - travis_retry nuget restore -source "https://www.nuget.org/api/v2" StockPrediction.sln
+before_script:
+  - nuget restore StockPrediction.sln
 script:
 - xbuild StockPrediction.sln
 
