@@ -6,11 +6,13 @@ namespace StockPrediction
 {
     public class StockPrediction
     {
-   
+        private readonly Trainer trainer;
+        private readonly Evaluator evaluator;
 
-        public StockPrediction()
+        public StockPrediction(Trainer trainer, Evaluator evaluator)
         {
-       
+            this.trainer = trainer;
+            this.evaluator = evaluator;
         }
 
         public void GetAndTrainYahoo()
@@ -25,9 +27,7 @@ namespace StockPrediction
             YahooDataContainer yahooDataContainer = new YahooDataContainer(yahooSymbols,new YahooDataBringer() );
 
 
-            Trainer  trainer =new Trainer();
-
-           var model =  trainer.Train(yahooDataContainer);
+            var model =  trainer.Train(yahooDataContainer);
 
             var weights = model.SynbolWeightDictionary[amzn];
 
@@ -40,7 +40,6 @@ namespace StockPrediction
                 Console.WriteLine();
             }
 
-            Evaluator evaluator = new Evaluator();
             evaluator.Evalutate(model);
         }
     }
