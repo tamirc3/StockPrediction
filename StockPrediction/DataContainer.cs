@@ -9,13 +9,13 @@ namespace StockPrediction
         List<string> DataSymbols { get; }
     }
 
-    public abstract class BaseDataContainer : IDataContainer
+    public  class DataContainer : IDataContainer
     {
         private Dictionary<string, IList> SymbolDataDictionary { get; set; }
         private readonly List<string> symbols;
         private readonly IDataBringer dataBringer;
 
-        protected BaseDataContainer(List<string> symbols, IDataBringer dataBringer)
+        public  DataContainer(List<string> symbols, IDataBringer dataBringer)
         {
             this.symbols = symbols;
             this.dataBringer = dataBringer;
@@ -39,21 +39,5 @@ namespace StockPrediction
 
 
         public List<string> DataSymbols => symbols;
-    }
-
-    public class YahooDataContainer: BaseDataContainer
-    {
-        public YahooDataContainer(List<string> symbols, IDataBringer dataBringer) : base(symbols, dataBringer)
-        {
-
-        }
-
-    }
-
-    public class CsvDataContainer : BaseDataContainer
-    {
-        public CsvDataContainer(List<string> symbols, IDataBringer dataBringer) : base(symbols, dataBringer)
-        {
-        }
     }
 }

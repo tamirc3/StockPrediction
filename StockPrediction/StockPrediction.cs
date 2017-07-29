@@ -24,7 +24,7 @@ namespace StockPrediction
                 amzn
             };
 
-            YahooDataContainer yahooDataContainer = new YahooDataContainer(yahooSymbols,new YahooDataBringer() );
+            DataContainer yahooDataContainer = new DataContainer(yahooSymbols,new YahooDataBringer() );
 
 
             var model =  trainer.Train(yahooDataContainer);
