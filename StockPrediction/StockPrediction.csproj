@@ -71,12 +71,15 @@
   <ItemGroup>
     <Compile Include="CsvReader.cs" />
     <Compile Include="DataContainer.cs" />
-    <Compile Include="Predictor.cs" />
+    <Compile Include="Evaluator.cs" />
+    <Compile Include="IDataBringer.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock.cs" />
+    <Compile Include="StockPrediction.cs" />
     <Compile Include="Trainer.cs" />
-    <Compile Include="YahooWrapper.cs" />
+    <Compile Include="YahooDataBringer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

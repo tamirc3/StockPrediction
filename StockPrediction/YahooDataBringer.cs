@@ -11,7 +11,7 @@ using StockPrediction;
 
 namespace Stocks
 {
-    public class YahooWrapper : IDataBringer
+    public class YahooDataBringer : IDataBringer
     {
   
         public IList BringMeData(string symbol)

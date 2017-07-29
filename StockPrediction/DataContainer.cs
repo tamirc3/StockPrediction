@@ -1,36 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Stocks;
 
 namespace StockPrediction
 {
     public interface IDataContainer
     {
-        IList GetData();
-        List<string> Symbols { get; set; }
+        IList GetData(string symbol);
+        List<string> DataSymbols { get; }
     }
 
-    public class YahooDataContainer: IDataContainer
+    public abstract class BaseDataContainer : IDataContainer
     {
-        public List<string> Symbols { get; set; }
+        private Dictionary<string, IList> SymbolDataDictionary { get; set; }
+        private readonly List<string> symbols;
+        private readonly IDataBringer dataBringer;
 
-        public IList GetData()
+        protected BaseDataContainer(List<string> symbols, IDataBringer dataBringer)
         {
-            var wrapper = new YahooWrapper();
-            var listOfStocks = wrapper.BringMeData("AMZN");
-            return listOfStocks;
+            this.symbols = symbols;
+            this.dataBringer = dataBringer;
+            SymbolDataDictionary = new Dictionary<string, IList>();
+            InitData();
         }
+
+        private void InitData()
+        {
+            foreach (var synbol in symbols)
+            {
+                var data = dataBringer.BringMeData(synbol);
+                SymbolDataDictionary.Add(synbol, data);
+            }
+        }
+
+        public IList GetData(string symbol)
+        {
+            return SymbolDataDictionary[symbol];
+        }
+
+
+        public List<string> DataSymbols => symbols;
     }
 
-    public class CsvDataContainer : IDataContainer
+    public class YahooDataContainer: BaseDataContainer
     {
-
-        public IList GetData()
+        public YahooDataContainer(List<string> symbols, IDataBringer dataBringer) : base(symbols, dataBringer)
         {
-            CsvReader csvReader = new CsvReader();
-            return csvReader.BringMeData("AMZN");
+
         }
 
-        public List<string> Symbols { get; set; }
+    }
+
+    public class CsvDataContainer : BaseDataContainer
+    {
+        public CsvDataContainer(List<string> symbols, IDataBringer dataBringer) : base(symbols, dataBringer)
+        {
+        }
     }
 }
