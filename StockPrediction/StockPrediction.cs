@@ -25,7 +25,7 @@ namespace StockPrediction
             };
 
             DataContainer yahooDataContainer = new DataContainer(yahooSymbols,new YahooDataBringer() );
-
+            yahooDataContainer.GetDataForSymbols();
 
             var model =  trainer.Train(yahooDataContainer);
 
