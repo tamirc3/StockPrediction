@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockPrediction", "StockPrediction\StockPrediction.csproj", "{B3E5131C-B886-4256-8CE0-68D77A9CBBE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockPredictionFeautres", "StockPredictionFeautres\StockPredictionFeautres.csproj", "{B5ACD58D-63E9-4885-B2A7-AE45E9FD2648}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockPredictionUT", "StockPredictionFeautres\StockPredictionUT.csproj", "{B5ACD58D-63E9-4885-B2A7-AE45E9FD2648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
