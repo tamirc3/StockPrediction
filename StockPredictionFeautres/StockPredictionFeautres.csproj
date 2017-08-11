@@ -66,11 +66,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StockPrediction.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StockPrediction.feature</DependentUpon>
-    </Compile>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,10 +83,6 @@
     </None>
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="StockPrediction.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>StockPrediction.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
