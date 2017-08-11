@@ -17,8 +17,7 @@ namespace StockPredictionFeautres
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("StockPreiction")]
+    [TechTalk.SpecRun.FeatureAttribute("StockPreiction", Description="       getting and preparing training data  ", SourceFile="StockPrediction.feature", SourceLine=0)]
     public partial class StockPreictionFeature
     {
         
@@ -27,7 +26,7 @@ namespace StockPredictionFeautres
 #line 1 "StockPrediction.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -35,19 +34,18 @@ namespace StockPredictionFeautres
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -63,10 +61,6 @@ namespace StockPredictionFeautres
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("creating traning data")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("\"AMZN\"", "\"csv\"", "\"Stock\"", null)]
         public virtual void CreatingTraningData(string symbol, string dataProvider, string format, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -90,10 +84,15 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("creating a model")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("\"Stock\"", "\"AMZN\"", "\"LeaniarRegretion\"", "\"Model\"", null)]
+        [TechTalk.SpecRun.ScenarioAttribute("creating traning data, \"AMZN\"", new string[] {
+                "mytag"}, SourceLine=12)]
+        public virtual void CreatingTraningData_AMZN()
+        {
+#line 5
+this.CreatingTraningData("\"AMZN\"", "\"csv\"", "\"Stock\"", ((string[])(null)));
+#line hidden
+        }
+        
         public virtual void CreatingAModel(string trainingData, string symbol, string trainingMethod, string model, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -115,6 +114,21 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then(string.Format("I should get a {0}", model), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("creating a model, \"Stock\"", new string[] {
+                "mytag"}, SourceLine=25)]
+        public virtual void CreatingAModel_Stock()
+        {
+#line 18
+this.CreatingAModel("\"Stock\"", "\"AMZN\"", "\"LeaniarRegretion\"", "\"Model\"", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.TestRunCleanup()]
+        public virtual void TestRunCleanup()
+        {
+            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }
